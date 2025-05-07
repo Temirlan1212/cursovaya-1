@@ -1,3 +1,4 @@
+"use client";
 import StatusDisplay from "./StatusDisplay";
 import PriorityDisplay from "./PriorityDisplay";
 import DeleteBlock from "./DeleteBlock";
@@ -36,9 +37,9 @@ const ApartmentCard = ({ apartment }) => {
         style={{ display: "contents" }}
       >
         <h4 className="mb-1">{apartment.title}</h4>
-        <hr className="h-px  border-0 bg-page mb-2 "></hr>
-        <p className="whitespace-pre-wrap">{apartment.description}</p>
-
+        <p className="mb-1">{apartment.price}</p>
+        <hr className="h-px border-0 bg-page mb-2 "></hr>
+        <p className="truncate">{apartment.description}</p>
         <div className="flex-grow"></div>
         <div className="flex mt-2">
           <div className="flex flex-col">

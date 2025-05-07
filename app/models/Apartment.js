@@ -13,6 +13,7 @@ const apartmentSchema = new Schema(
     status: String,
     active: Boolean,
     img: String,
+    price: String,
   },
   {
     timestamps: true,

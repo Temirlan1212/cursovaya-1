@@ -7,6 +7,7 @@ const EditApartmentForm = ({ apartment }) => {
   const EDITMODE = apartment._id === "new" ? false : true;
   const router = useRouter();
   const startingApartmentData = {
+    price: "100.000$",
     title: "",
     description: "",
     rooms: 1,
@@ -87,6 +88,16 @@ const EditApartmentForm = ({ apartment }) => {
           onChange={handleChange}
           required
           value={formData.title}
+        />
+
+        <label htmlFor="price">Цена</label>
+        <input
+          id="price"
+          name="price"
+          type="text"
+          onChange={handleChange}
+          required
+          value={formData.price}
         />
 
         <label htmlFor="description">Описание</label>
