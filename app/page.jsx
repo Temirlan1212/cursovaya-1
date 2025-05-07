@@ -4,9 +4,12 @@ import EditApartmentForm from "./(components)/EditApartmentForm";
 
 const getApartments = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/Apartments", {
-      cache: "no-store",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/Apartments`,
+      {
+        cache: "no-store",
+      }
+    );
 
     if (!res.ok) {
       throw new Error("Failed to fetch topics");
@@ -20,7 +23,6 @@ const getApartments = async () => {
 
 const Dashboard = async () => {
   const data = await getApartments();
-  console.log(data, "sadfasdf");
 
   // Make sure we have apartments needed for production build.
   if (!data?.apartments.length) {

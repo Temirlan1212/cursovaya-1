@@ -8,9 +8,12 @@ const DeleteBlock = ({ id }) => {
   const router = useRouter();
 
   const deleteApartment = async () => {
-    const res = await fetch(`http://localhost:3000/api/Apartments/${id}`, {
-      method: "DELETE",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/api/Apartments/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
     if (res.ok) {
       router.refresh();
     }
