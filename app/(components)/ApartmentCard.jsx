@@ -4,7 +4,7 @@ import DeleteBlock from "./DeleteBlock";
 import ProgressDisplay from "./ProgressDisplay";
 import Link from "next/link";
 
-const TicketCard = ({ ticket }) => {
+const ApartmentCard = ({ apartment }) => {
   function formatTimestamp(timestamp) {
     const options = {
       year: "numeric",
@@ -21,29 +21,32 @@ const TicketCard = ({ ticket }) => {
     return formattedDate;
   }
 
-  const createdDateTime = formatTimestamp(ticket.createdAt);
+  const createdDateTime = formatTimestamp(apartment.createdAt);
 
   return (
     <div className="flex flex-col hover:bg-card-hover bg-card rounded-md shadow-lg p-3 m-2">
       <div className="flex mb-3">
-        <PriorityDisplay priority={ticket.priority} />
+        <PriorityDisplay rooms={apartment.rooms} />
         <div className="ml-auto">
-          <DeleteBlock id={ticket._id} />
+          <DeleteBlock id={apartment._id} />
         </div>
       </div>
-      <Link href={`/TicketPage/${ticket._id}`} style={{ display: "contents" }}>
-        <h4 className="mb-1">{ticket.title}</h4>
+      <Link
+        href={`/ApartmentPage/${apartment._id}`}
+        style={{ display: "contents" }}
+      >
+        <h4 className="mb-1">{apartment.title}</h4>
         <hr className="h-px  border-0 bg-page mb-2 "></hr>
-        <p className="whitespace-pre-wrap">{ticket.description}</p>
+        <p className="whitespace-pre-wrap">{apartment.description}</p>
 
         <div className="flex-grow"></div>
         <div className="flex mt-2">
           <div className="flex flex-col">
             <p className="text-xs  my-1">{createdDateTime}</p>
-            <ProgressDisplay progress={ticket.progress} />
+            <ProgressDisplay progress={apartment.progress} />
           </div>
           <div className="ml-auto  flex items-end">
-            <StatusDisplay status={ticket.status} />
+            <StatusDisplay status={apartment.status} />
           </div>
         </div>
       </Link>
@@ -51,4 +54,4 @@ const TicketCard = ({ ticket }) => {
   );
 };
 
-export default TicketCard;
+export default ApartmentCard;

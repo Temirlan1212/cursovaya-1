@@ -1,36 +1,30 @@
-import { faFire } from "@fortawesome/free-solid-svg-icons";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const PriorityDisplay = ({ priority }) => {
+const PriorityDisplay = ({ rooms }) => {
   return (
     <div className="flex justify-start align-baseline">
       <FontAwesomeIcon
-        icon={faFire}
-        className={` pr-1 ${
-          priority > 0 ? " text-red-400" : " text-slate-400"
-        }`}
+        icon={faHouse}
+        className={` pr-1 ${rooms > 0 ? " text-green-400" : " text-slate-400"}`}
       />
       <FontAwesomeIcon
-        icon={faFire}
-        className={` pr-1 ${
-          priority > 1 ? " text-red-400" : " text-slate-400"
-        }`}
+        icon={faHouse}
+        className={` pr-1 ${rooms > 1 ? " text-green-400" : " text-slate-400"}`}
       />
       <FontAwesomeIcon
-        icon={faFire}
+        icon={faHouse}
         className={`  pr-1 ${
-          priority > 2 ? " text-red-400" : " text-slate-400"
+          rooms > 2 ? " text-green-400" : " text-slate-400"
         }`}
       />
       <FontAwesomeIcon
-        icon={faFire}
-        className={` pr-1 ${
-          priority > 3 ? " text-red-400" : " text-slate-400"
-        }`}
+        icon={faHouse}
+        className={` pr-1 ${rooms > 3 ? " text-green-400" : " text-slate-400"}`}
       />
       <FontAwesomeIcon
-        icon={faFire}
-        className={` ${priority > 4 ? " text-red-400" : " text-slate-400"}`}
+        icon={faHouse}
+        className={` ${rooms > 4 ? " text-green-400" : " text-slate-400"}`}
       />
     </div>
   );

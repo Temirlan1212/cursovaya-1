@@ -1,11 +1,11 @@
-import Ticket from "@/app/models/Ticket";
+import Apartment from "../../../models/Apartment";
 import { NextResponse } from "next/server";
 
 export async function GET(request, { params }) {
   const { id } = params;
 
-  const foundTicket = await Ticket.findOne({ _id: id });
-  return NextResponse.json({ foundTicket }, { status: 200 });
+  const foundApartment = await Apartment.findOne({ _id: id });
+  return NextResponse.json({ foundApartment }, { status: 200 });
 }
 
 export async function PUT(req, { params }) {
@@ -13,13 +13,13 @@ export async function PUT(req, { params }) {
     const { id } = params;
 
     const body = await req.json();
-    const ticketData = body.formData;
+    const apartmentData = body.formData;
 
-    const updateTicketData = await Ticket.findByIdAndUpdate(id, {
-      ...ticketData,
+    const updateApartmentData = await Apartment.findByIdAndUpdate(id, {
+      ...apartmentData,
     });
 
-    return NextResponse.json({ message: "Ticket updated" }, { status: 200 });
+    return NextResponse.json({ message: "Apartment updated" }, { status: 200 });
   } catch (error) {
     console.log(error);
     return NextResponse.json({ message: "Error", error }, { status: 500 });
@@ -30,8 +30,8 @@ export async function DELETE(req, { params }) {
   try {
     const { id } = params;
 
-    await Ticket.findByIdAndDelete(id);
-    return NextResponse.json({ message: "Ticket Deleted" }, { status: 200 });
+    await Apartment.findByIdAndDelete(id);
+    return NextResponse.json({ message: "Apartment Deleted" }, { status: 200 });
   } catch (error) {
     console.log(error);
     return NextResponse.json({ message: "Error", error }, { status: 500 });

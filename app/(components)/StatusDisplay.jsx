@@ -1,16 +1,18 @@
+"use client";
 const StatusDisplay = ({ status }) => {
+  if (!status) return null;
   const getColor = (status) => {
     let color;
     switch (status.toLowerCase()) {
-      case "done":
+      case "активен":
         color = "bg-green-200";
         return color;
 
-      case "started":
+      case "приостановлен":
         color = "bg-yellow-200";
         return color;
 
-      case "not started":
+      case "продан":
         color = "bg-red-200";
         return color;
       default:

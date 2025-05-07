@@ -3,21 +3,23 @@ import mongoose, { Schema } from "mongoose";
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.Promise = global.Promise;
 
-const ticketSchema = new Schema(
+const apartmentSchema = new Schema(
   {
     title: String,
     description: String,
     category: String,
-    priority: Number,
+    rooms: String,
     progress: Number,
     status: String,
     active: Boolean,
+    img: String,
   },
   {
     timestamps: true,
   }
 );
 
-const Ticket = mongoose.models.Ticket || mongoose.model("Ticket", ticketSchema);
+const Apartment =
+  mongoose.models.Apartment || mongoose.model("Apartment", apartmentSchema);
 
-export default Ticket;
+export default Apartment;
